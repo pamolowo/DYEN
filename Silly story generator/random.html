@@ -1,0 +1,395 @@
+HTML:
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Silly Story Generator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>Silly Story Generator</h1>
+    <div id="story"></div>
+    <button id="generate-button">Generate Story</button>
+    <script src="script.js"></script>
+  </body>
+</html>
+CSS:
+
+Copy code
+body {
+  background-color: pink;
+  text-align: center;
+}
+
+h1 {
+  color: purple;
+}
+
+#story {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#generate-button {
+  background-color: purple;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 20px;
+}
+JavaScript:
+
+Copy code
+const generateButton = document.getElementById("generate-button");
+const storyDiv = document.getElementById("story");
+
+const sillyAdjectives = ["silly", "wacky", "dopey", "goofy", "weird"];
+const sillyNouns = ["llama", "penguin", "giraffe", "unicorn", "otter"];
+const sillyVerbs = ["danced", "jumped", "hopped", "skipped", "twirled"];
+
+generateButton.addEventListener("click", function() {
+  let randomAdjective = sillyAdjectives[Math.floor(Math.random() * sillyAdjectives.length)];
+  let randomNoun = sillyNouns[Math.floor(Math.random() * sillyNouns.length)];
+  let randomVerb = sillyVerbs[Math.floor(Math.random() * sillyVerbs.length)];
+
+  let sillyStory = `Once upon a time, a ${randomAdjective} ${randomNoun} ${randomVerb} through the forest.`;
+  storyDiv.innerHTML = sillyStory;
+});
+This is a simple example of how to create a silly story generator using HTML, CSS, and JavaScript. The JavaScript creates an event listener on the "generate story" button that, when clicked, generates a random silly story using the arrays of silly adjectives, nouns, and verbs.
+
+
+
+
+pamela olowojebutu
+give me the code for an image gallery using html, css and javascript
+Sure! Here's an example of how you could create an image gallery using HTML, CSS, and JavaScript:
+
+HTML:
+
+Copy code
+<div id="image-gallery">
+  <img id="current-image" src="image1.jpg" alt="Image 1">
+  <div id="previous-button">&lt;</div>
+  <div id="next-button">&gt;</div>
+</div>
+The HTML creates a div element to contain the image gallery, and within that, an img element to display the current image and two div elements to serve as the "previous" and "next" buttons.
+
+CSS:
+
+Copy code
+#image-gallery {
+  position: relative;
+}
+
+#current-image {
+  width: 100%;
+}
+
+#previous-button, #next-button {
+  position: absolute;
+  top: 50%;
+  font-size: 3em;
+  cursor: pointer;
+}
+
+#previous-button {
+  left: 0;
+}
+
+#next-button {
+  right: 0;
+}
+The CSS styles the div element containing the gallery to be positioned relative, the img element to take up the full width, and the "previous" and "next" buttons to be positioned absolute and to be vertically centered. It also sets the font size of the buttons and changes the cursor to a pointer.
+
+JavaScript:
+
+Copy code
+const currentImage = document.getElementById("current-image");
+const previousButton = document.getElementById("previous-button");
+const nextButton = document.getElementById("next-button");
+
+const images = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"];
+let currentIndex = 0;
+
+currentImage.src = images[currentIndex];
+
+previousButton.addEventListener("click", function() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  }
+  currentImage.src = images[currentIndex];
+});
+
+nextButton.addEventListener("click", function() {
+  currentIndex++;
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+  currentImage.src = images[currentIndex];
+});
+In the JavaScript, it creates variables for the current image, the previous button, and the next button. And it creates an array of image file names and a variable to keep track of the current image index. The JavaScript sets the source of the current image to the first image in the array and adds click event listeners to the previous and next buttons that change the current image when clicked.
+
+This is a basic example of how you could create an image gallery using HTML, CSS, and JavaScript. You can add more functionality as per your requirement.
+
+
+Sure, here's an example of how you could create the MDN bouncing ball demo with an "evil circle" using HTML, CSS, and JavaScript:
+
+HTML:
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bouncing Ball with Evil Circle</title>
+    <style>
+     body {
+  background-color: #ddd;
+}
+
+canvas {
+  border: 1px solid black;
+}
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      /* JavaScript code goes here */
+    </script>
+  </body>
+</html>
+CSS:
+
+Copy code
+body {
+  background-color: #ddd;
+}
+
+canvas {
+  border: 1px solid black;
+}
+JavaScript:
+
+Copy code
+// Get canvas and context
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+// Set canvas size to window size
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Ball properties
+let x = canvas.width / 2;
+let y = canvas.height / 2;
+let size = 50;
+let xSpeed = 5;
+let ySpeed = 5;
+
+// Evil circle properties
+let evilX = 100;
+let evilY = 100;
+let evilSize = 75;
+let evilSpeed = 2;
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Clear canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw ball
+  ctx.beginPath();
+  ctx.arc(x, y, size, 0, Math.PI * 2);
+  ctx.fillStyle = "blue";
+  ctx.fill();
+
+  // Draw evil circle
+  ctx.beginPath();
+  ctx.arc(evilX, evilY, evilSize, 0, Math.PI * 2);
+  ctx.fillStyle = "red";
+  ctx.fill();
+
+  // Move ball
+  x += xSpeed;
+  y += ySpeed;
+
+  // Move evil circle
+  evilX += evilSpeed;
+  evilY += evilSpeed;
+
+  // Check for ball collision with walls
+  if (x + size > canvas.width || x - size < 0) {
+    xSpeed = -xSpeed;
+  }
+  if (y + size > canvas.height || y - size < 0) {
+    ySpeed = -ySpeed;
+  }
+
+  // Check for evil circle collision with walls
+  if (evilX + evilSize > canvas.width || evilX - evilSize < 0) {
+    evilSpeed = -evilSpeed;
+  }
+  if (evilY + evilSize > canvas.height || evilY - evilSize < 0) {
+    evilSpeed = -evilSpeed;
+  }
+
+  // Check for collision between ball and evil circle
+  let distance = Math.sqrt(Math.pow(evilX - x, 2) + Math.pow(evilY - y, 2));
+  if (distance < size + evilSize) {
+    alert("The evil circle got you!");
+  }
+}
+
+animate();
+
+
+
+Sure, here's an example of how you could create a sequencing animation using JavaScript and CSS:
+
+HTML:
+
+Copy code
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sequencing Animation</title>
+    <style>
+      /* CSS styles go here */
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <script>
+      /* JavaScript code goes here */
+    </script>
+  </body>
+</html>
+CSS:
+
+Copy code
+#container {
+  display: flex;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  margin: 5px;
+}
+JavaScript:
+
+Copy code
+const boxes = document.querySelectorAll(".box");
+
+let i = 0;
+
+function changeColor() {
+  boxes[i].style.backgroundColor = "red";
+  i++;
+  if (i === boxes.length) {
+    i = 0;
+  }
+}
+
+setInterval(changeColor, 1000);
+In the JavaScript, it selects all elements with the class "box" and stores them in the boxes variable. Then it uses a setInterval() function to call the changeColor() function every 1000 milliseconds (1 second).
+The changeColor() function sets the background color of the current box to red and increments the index i. If i is equal to the number of boxes, it resets the index back to 0 so the animation can repeat.
+
+This is a basic example of how you could create a sequencing animation using JavaScript and CSS. You can use this as a base and add more functionality as per your requirement.
+
+<div id="gallery">
+  <img src="image1.jpg" class="gallery-image" onclick="openModal();currentSlide(1)" alt="image 1">
+  <img src="image2.jpg" class="gallery-image" onclick="openModal();currentSlide(2)" alt="image 2">
+  <img src="image3.jpg" class="gallery-image" onclick="openModal();currentSlide(3)" alt="image 3">
+</div>
+
+<div id="modal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <div class="mySlides">
+      <img src="image1.jpg" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <img src="image2.jpg" style="width:100%">
+    </div>
+    <div class="mySlides">
+      <img src="image3.jpg" style="width:100%">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+</div>
+Copy code
+.gallery-image {
+  width: 30%;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.mySlides {
+  display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -50px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+

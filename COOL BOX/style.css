@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+.container-wrap{
+    background-color: rgb(195, 193, 193);
+    width: 40%;
+    margin: 10% auto;
+    height: 20rem;
+    padding: 1rem 0rem;
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: red;
+    width: 80%;
+    border: 2.5px solid black;
+    border-radius: 20px;
+   
+   
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 10rem;
+    background-color: rgb(133, 9, 9);
+    color: white;
+}
+.para, h1, h3{
+    padding: 1rem;
+}
+.imgs img{
+   width: 150px;
+   height: 160px;
+}

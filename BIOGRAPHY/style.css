@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 50%;
+    margin: 10% auto;
+    border: 2px solid grey;
+    padding: 2rem 1rem;
+   
+}
+
+h1 {
+    color: hotpink;
+    font-size: 2em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-bottom: 5px dotted purple;
+    padding-bottom: 2rem;
+}
+
+h2 {
+    font-size: 1.5em;
+    padding-bottom: 2rem;
+}
+
+.job-title {
+    color: #999999;
+    font-weight: bold;
+    font-style: italic;
+    padding: 2rem 0rem;
+    font-size: large;
+}
+p{
+    padding-bottom: 2.5rem;
+}
+
+a:link, a:visited {
+    color: #fb6542;
+}
+
+a:hover {
+    text-decoration: none;
+    color: green;
+}
+ul{
+    border: 5px solid purple;
+    padding: 2.5rem ;
+}

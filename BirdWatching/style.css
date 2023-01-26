@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: aqua;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+}
+.navbar h1{
+    font-family: cursive;
+    font-size: 60px;
+    letter-spacing: 10px;
+    padding-left: 3rem;
+
+}
+.navbar img{
+    padding-top: 1rem;
+}
+.container{
+    display: flex;
+    border: 5px solid grey;
+    flex-direction: row;
+    margin: 1rem;
+}
+.content{
+    max-width: 600px;
+    border-right: 5px solid grey;
+    padding: 1rem;
+}
+.content h1{
+    text-align: center;
+}
+.content p{
+    padding: 2rem 0rem;
+}
+
+.fav h1 {
+      text-align: center;
+      padding-top: 1rem;
+}
+.gallery img{
+    width: 250px;
+    height: 250px;
+}
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
